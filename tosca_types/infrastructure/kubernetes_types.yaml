@@ -163,7 +163,7 @@ node_types:
     interfaces:
       Standard:
         configure:
-          implementation: https://github.com/indigo-paas/tosca-types/raw/main/artifacts/k8s/kube_fe_install.yaml
+          implementation: https://github.com/indigo-paas/tosca-types/raw/main/artifacts/k8s/kube_wn_install.yaml
           inputs:
             kube_front_end_ip: { get_property: [ SELF, front_end_ip ] }
             wn_hybrid_cluster:  { get_property: [ SELF, hybrid] }
