@@ -42,9 +42,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.middlewares.elastic-redirect-ssl.redirectscheme.scheme=https"
       - "traefik.http.routers.elastic-nossl.middlewares=elastic-redirect-ssl"
-      - "traefik.http.routers.elastic-nossl.rule=Host(`${DOMAIN_NAME}.myip.cloud.infn.it`) && PathPrefix(`/es`)"
+      - "traefik.http.routers.elastic-nossl.rule=Host(`${DOMAIN_NAME}`) && PathPrefix(`/es`)"
       - "traefik.http.routers.elastic-nossl.entrypoints=web"
-      - "traefik.http.routers.elastic.rule=Host(`${DOMAIN_NAME}.myip.cloud.infn.it`) && PathPrefix(`/es`)"
+      - "traefik.http.routers.elastic.rule=Host(`${DOMAIN_NAME}`) && PathPrefix(`/es`)"
       - "traefik.http.routers.elastic.entrypoints=websecure"
       - "traefik.http.routers.elastic.tls.certresolver=myhttpchallenge"
       - "traefik.http.routers.elastic.tls=true"
@@ -60,16 +60,16 @@ services:
       ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
       ELASTICSEARCH_USERNAME: kibana_system
       ELASTICSEARCH_PASSWORD: ${KIBANA_PASSWORD}
-      SERVER_PUBLICBASEURL: https://${DOMAIN_NAME}.myip.cloud.infn.it/kibana
+      SERVER_PUBLICBASEURL: https://${DOMAIN_NAME}/kibana
       SERVER_BASEPATH: /kibana
       SERVER_REWRITEBASEPATH: "true"
     labels:
       - "traefik.enable=true"
       - "traefik.http.middlewares.kibana-redirect-ssl.redirectscheme.scheme=https"
       - "traefik.http.routers.kibana-nossl.middlewares=kibana-redirect-ssl"
-      - "traefik.http.routers.kibana-nossl.rule=Host(`${DOMAIN_NAME}.myip.cloud.infn.it`)  && PathPrefix(`/kibana`)"
+      - "traefik.http.routers.kibana-nossl.rule=Host(`${DOMAIN_NAME}`)  && PathPrefix(`/kibana`)"
       - "traefik.http.routers.kibana-nossl.entrypoints=web"
-      - "traefik.http.routers.kibana.rule=Host(`${DOMAIN_NAME}.myip.cloud.infn.it`)  && PathPrefix(`/kibana`)"
+      - "traefik.http.routers.kibana.rule=Host(`${DOMAIN_NAME}`)  && PathPrefix(`/kibana`)"
       - "traefik.http.routers.kibana.entrypoints=websecure"
       - "traefik.http.routers.kibana.tls.certresolver=myhttpchallenge"
       - "traefik.http.routers.kibana.tls=true"
