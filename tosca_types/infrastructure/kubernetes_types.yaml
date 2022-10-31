@@ -64,6 +64,14 @@ node_types:
         required: no
         type: string
         default: v1.8.1
+      cert_manager_type:
+        required: no
+        type: string
+        default: self-signed
+      cert_manager_email:
+        required: no
+        type: string
+        default: ""
       dashboard_helm_version:
         required: no
         type: string
@@ -115,6 +123,8 @@ node_types:
             kube_deploy_dashboard: { get_property: [ SELF, kube_deploy_dashboard ] }
             nginx_ingress_helm_version: { get_property: [ SELF, nginx_ingress_helm_version ] }
             cert_manager_helm_version: { get_property: [ SELF, cert_manager_helm_version ] }
+            cert_manager_type: { get_property: [ SELF, cert_manager_type ] }
+            cert_manager_email: { get_property: [ SELF, cert_manager_email ] }
             dashboard_helm_version: { get_property: [ SELF, dashboard_helm_version ] }
             prometheus_helm_version: { get_property: [ SELF, prometheus_helm_version ] }
             kube_eagle_helm_version: { get_property: [ SELF, kube_eagle_helm_version ] } 
