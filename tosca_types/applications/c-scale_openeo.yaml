@@ -34,7 +34,7 @@ node_types:
         required: yes
     artifacts:
       openeo_role:
-        file: git+https://github.com/c-scale-community/ansible-role-openeo-k8s.git
+        file: git+https://github.com/jvino/ansible-role-openeo-k8s,demo
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
