@@ -32,6 +32,9 @@ node_types:
       cert_manager_issuer:
         type: string
         required: yes
+      configmap_url:
+        type: string
+        required: no
     artifacts:
       openeo_role:
         file: git+https://github.com/c-scale-community/ansible-role-openeo-k8s.git
@@ -44,4 +47,4 @@ node_types:
             role_name: ansible-role-openeo-k8s
             openeo_dns_name: { get_property: [ SELF, dns_name ] }
             openeo_cert_manager_issuer: { get_property: [ SELF, cert_manager_issuer ] }
-
+            openeo_configmap_url: { get_property: [ SELF, configmap_url ] }
