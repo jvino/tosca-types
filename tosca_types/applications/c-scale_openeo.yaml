@@ -32,9 +32,21 @@ node_types:
       cert_manager_issuer:
         type: string
         required: yes
-      configmap_url:
+      layercatalog_url:
         type: string
         required: no
+      spark_driver_memory:
+        type: string
+        default: 2g
+      spark_driver_cpus:
+        type: integer
+        default: 1
+      spark_executor_memory:
+        type: string
+        default: 2g
+      spark_executor_cpus:
+        type: integer
+        default: 1  
     artifacts:
       openeo_role:
         file: git+https://github.com/c-scale-community/ansible-role-openeo-k8s.git
@@ -47,4 +59,8 @@ node_types:
             role_name: ansible-role-openeo-k8s
             openeo_dns_name: { get_property: [ SELF, dns_name ] }
             openeo_cert_manager_issuer: { get_property: [ SELF, cert_manager_issuer ] }
-            openeo_configmap_url: { get_property: [ SELF, configmap_url ] }
+            openeo_configmap_url: { get_property: [ SELF, layercatalog_url ] }
+            openeo_spark_driver_memory: { get_property: [ SELF, spark_driver_memory ] }
+            openeo_spark_driver_cpus: { get_property: [ SELF, spark_driver_cpus ] }
+            openeo_spark_executor_memory: { get_property: [ SELF, spark_executor_memory ] }
+            openeo_spark_executor_cpus: { get_property: [ SELF, spark_executor_cpus ] }
