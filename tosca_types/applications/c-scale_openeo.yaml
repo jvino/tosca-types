@@ -49,7 +49,7 @@ node_types:
         default: 1  
     artifacts:
       openeo_role:
-        file: git+https://github.com/jvino/ansible-role-openeo-k8s.git,openeo-demo
+        file: git+https://github.com/jvino/ansible-role-openeo-k8s.git,openeo-demo-v2
         type: tosca.artifacts.AnsibleGalaxy.role
     interfaces:
       Standard:
